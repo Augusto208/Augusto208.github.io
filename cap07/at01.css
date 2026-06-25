@@ -1,248 +1,253 @@
-/* =========================
-   CONFIGURAÇÕES GERAIS
-========================= */
+/* - Base - */
+/*rem utiliza como base o tamanho da fonte do elemento raiz (html), mantendo maior consistência visual.N em é calculado a partir do tamanho da fonte do elemento pai e pode variar conforme a estrutura da página.
+% define valores proporcionais ao elemento pai, sendo muito usada em layouts responsivos. rem é recomendada para fontes e espaçamentos aplicados de forma global.
+em e % são mais adequadas para ajustes locais e elementos que precisam se adaptar ao espaço disponível. */
 
 body {
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  font-family: Verdana, Geneva, sans-serif;
-  background: #faf7f2;
-  color: #2d2d2d;
+  color: #333;
+  background-color: #f5f5f5;
 }
 
 
-/* =========================
-   TOPO
-========================= */
+/* - Cabeçalho - */
 
-.topo {
-  background: #4a148c;
-  padding: 3rem;
+.cabecalho {
+  background-color: #1565c0;
+  padding: 2rem;
 }
 
+/* Conjunto de seletores */
 h1,
 h2,
 h3 {
   margin: 0;
 }
 
-.topo h1 {
+.cabecalho h1 {
   color: #ffffff;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
-.descricao {
-  color: #d1c4e9;
-  margin-top: 0.5rem;
+.subtitulo {
+  color: #bbdefb;
+  font-size: 1rem;
 }
 
 
-/* =========================
-   NAVEGAÇÃO
-========================= */
+/* - Menu - */
 
-.navegacao ul {
+.menu ul {
   list-style: none;
   padding: 0;
-  margin-top: 1.5rem;
+  margin: 1rem 0 0;
 }
 
-.navegacao li {
-  display: inline;
-  margin-right: 2rem;
+.menu li {
+  display: inline-block;
+  margin-right: 1.5rem;
 }
 
-.navegacao > ul > li > a {
-  color: white;
+
+/* Filho direto */
+.menu > ul > li > a {
+  color: #ffffff;
+  font-size: 1rem;
   text-decoration: none;
 }
 
-.navegacao a:hover {
-  color: #ffeb3b;
-}
 
-.navegacao a::after {
-  content: " ✦";
+.menu a:hover {
+  text-decoration: underline;
 }
 
 
-/* =========================
-   CONTEÚDO
-========================= */
-
-.conteudo {
-  max-width: 70rem;
-  margin: 2rem auto;
-  padding: 1rem;
+/* Pseudo elemento */
+.menu a::before {
+  content: "› ";
 }
 
-.conteudo h2 {
-  color: #6a1b9a;
+
+/* - Seções - */
+
+.secao {
+  width: 90%;
+  max-width: 60rem;
+  padding: 2rem;
 }
 
-.conteudo h3 {
-  color: #8e24aa;
+
+.secao h2 {
+  color: #1565c0;
+  font-size: 1.5rem;
 }
 
+
+.secao h3 {
+  color: #0d47a1;
+  font-size: 1.25rem;
+}
+
+
+/* Irmão adjacente */
 h2 + p {
-  border-left: 4px solid #ce93d8;
-  padding-left: 1rem;
-}
-
-.importante ~ p {
-  background: #f3e5f5;
-  padding: 0.5rem;
-}
-
-
-/* =========================
-   BLOCOS
-========================= */
-
-.bloco {
-  display: inline-block;
-  width: 30%;
-  padding: 1rem;
-  box-sizing: border-box;
-  border-radius: 0.75rem;
-  margin: 0.5rem;
-}
-
-.bloco:nth-child(odd) {
-  background: #ffffff;
-}
-
-.bloco:nth-child(even) {
-  background: #ede7f6;
-}
-
-.bloco:not(:last-child) {
-  border-bottom: 3px solid #b39ddb;
-}
-
-
-/* =========================
-   LINKS DE AÇÃO
-========================= */
-
-.acao {
-  display: inline-block;
   margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background: #6a1b9a;
-  color: white;
+}
+
+
+/* Irmão geral */
+.destaque ~ p {
+  background-color: #eeeeee;
+}
+
+
+/* - Cartões - */
+
+.cartao {
+  display: inline-block;
+  width: 28%;
+  vertical-align: top;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  padding: 1em;
+  margin: 0.5em;
+}
+
+
+
+.cartao:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+.cartao:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+
+
+.cartao:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+
+.botao {
+  display: inline-block;
+  background-color: #1565c0;
+  color: #ffffff;
+  font-size: 1rem;
   text-decoration: none;
-  border-radius: 0.5rem;
-}
-
-.acao:hover {
-  background: #4a148c;
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
 }
 
 
-/* =========================
-   CRONOGRAMA
-========================= */
 
-.cronograma {
-  line-height: 2rem;
+.botao:hover {
+  text-decoration: underline;
 }
 
-.cronograma > li {
+
+/* - Lista da programação - */
+
+.lista-dias {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+
+/* Filho direto */
+.lista-dias > li {
   font-weight: bold;
 }
 
-.cronograma > li:first-child {
-  color: #2e7d32;
+.lista-dias > li:first-child {
+  color: #1565c0;
 }
 
-.cronograma > li:last-child {
-  color: #c62828;
+.lista-dias > li:last-child {
+  color: #b71c1c;
 }
 
 
-/* =========================
-   CADASTRO
-========================= */
+/* - Formulário - */
 
-.cadastro {
-  max-width: 35rem;
+.formulario {
+  max-width: 30rem;
 }
 
-.cadastro label {
+
+.formulario label {
   display: block;
-  margin-top: 1rem;
+  font-size: 1rem;
+  margin-top: 1em;
 }
 
-.cadastro label::before {
-  content: "➜ ";
-  color: #6a1b9a;
-}
 
 input,
 textarea {
-  width: 100%;
-  padding: 0.75rem;
-  margin-top: 0.3rem;
-  border: 1px solid #bdbdbd;
-  border-radius: 0.3rem;
-  box-sizing: border-box;
+  display: block;
+  width: 80%;
+  font-size: 1rem;
+  padding: 0.5em;
+  margin-top: 0.25em;
+  border: 1px solid #999999;
 }
+
+
 
 input:focus,
 textarea:focus {
-  border-color: #6a1b9a;
-  outline: none;
+  border-color: #1565c0;
 }
 
+
+/* Seletores de atributo */
 input[type="email"] {
-  background: #f3e5f5;
+  border: 2px solid #1565c0;
 }
 
 input[type="password"] {
-  background: #fff3e0;
+  border: 2px solid #b71c1c;
 }
 
 
-/* =========================
-   BOTÃO
-========================= */
+/* Pseudo-elemento */
+.formulario label::after {
+  content: "*";
+}
+
 
 button {
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #1565c0;
+  padding: 0.5em 1.5em;
   margin-top: 1rem;
-  padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 0.5rem;
-  background: #6a1b9a;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #4a148c;
+  border: 0;
 }
 
 
-/* =========================
-   ESPECIFICIDADE
-========================= */
+/* - ponto especifico - */
+/*
+O seletor .cartao .botao é mais específico que .botao.
+Por isso, os estilos definidos na segunda regra prevalecem.
+*/
 
-.acao {
-  background: #6a1b9a;
+.botao {
+  background-color: #1565c0;
 }
 
-.bloco .acao {
-  background: #4527a0;
+.cartao .botao {
+  background-color: #0d47a1;
 }
 
 
-/* =========================
-   RODAPÉ
-========================= */
+/* - Rodapé - */
 
 .rodape {
-  background: #212121;
-  color: #e0e0e0;
-  text-align: center;
-  padding: 2rem;
-  margin-top: 3rem;
+  background-color: #263238;
+  color: #cfd8dc;
+  padding: 1.5rem;
+  font-size: 0.875rem;
 }
